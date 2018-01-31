@@ -27,4 +27,10 @@ public class MealsServiceImpl implements IMealsService {
 		return mealDaoImpl.findAll();
 	}
 
+	@Override
+	public Meals findById(Long id) {
+		
+		return mealDaoImpl.findById(id);
+	}
+
 }

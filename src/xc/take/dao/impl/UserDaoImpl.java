@@ -16,8 +16,9 @@ public class UserDaoImpl implements IUserDao {
 	@Override
 	public void saveUser(UserVo userVo) {
 		Connection connection = JDBCUtil.getConnection();
-		String sql ="insert into user(username,password,nikename) values (?,?,?)";
+		String sql ="insert into user(u_username,u_password,u_nikename) values (?,?,?)";
 		try {
+			System.out.println(userVo.getNikename());
 			PreparedStatement pre = connection.prepareStatement(sql);
 			pre.setString(1, userVo.getUserName());
 			pre.setString(2, userVo.getPassword());
@@ -37,7 +38,7 @@ public class UserDaoImpl implements IUserDao {
 
 	@Override
 	public void modifyUser(UserVo userVo) {
-		String sql = "update user set username=?,password=?,nikename=? where id=?";
+		String sql = "update user set u_username=?,u_password=?,u_nikename=? where u_id=?";
 		Connection connection = JDBCUtil.getConnection();
 		try {
 		PreparedStatement  pre = connection.prepareStatement(sql);
@@ -60,7 +61,7 @@ public class UserDaoImpl implements IUserDao {
 
 	@Override
 	public UserVo findById(Long id) {
-		String sql="select * from user where id=?";
+		String sql="select * from user where u_id=?";
 		Connection connection = JDBCUtil.getConnection();
 		UserVo userVo=new UserVo();
 		try {
@@ -68,9 +69,9 @@ public class UserDaoImpl implements IUserDao {
 			pre.setLong(1, id);
 			ResultSet rs = pre.executeQuery();
 			while (rs.next()) {
-				 String username = rs.getString("username");
-				 String password = rs.getString("password");
-				 String nikename = rs.getString("nikename");
+				 String username = rs.getString("u_username");
+				 String password = rs.getString("u_password");
+				 String nikename = rs.getString("u_nikename");
 				 userVo.setId(id);
 				 userVo.setUserName(username);
 				 userVo.setPassword(password);
@@ -98,10 +99,10 @@ public class UserDaoImpl implements IUserDao {
 			ResultSet rs = pre.executeQuery();
 			while(rs.next()){
 				UserVo userVo=new UserVo();
-				 Long id = rs.getLong("id");
-				 String username = rs.getString("username");
-				 String password = rs.getString("password");
-				 String nikename = rs.getString("nikename");
+				 Long id = rs.getLong("u_id");
+				 String username = rs.getString("u_username");
+				 String password = rs.getString("u_password");
+				 String nikename = rs.getString("u_nikename");
 				 userVo.setId(id);
 				 userVo.setUserName(username);
 				 userVo.setPassword(password);
@@ -121,7 +122,7 @@ public class UserDaoImpl implements IUserDao {
 
 	@Override
 	public UserVo findByUserNameAndPassword(String username, String password) {
-		String sql="select * from user where username=? and password=?";
+		String sql="select * from user where u_username=? and u_password=?";
 		Connection connection = JDBCUtil.getConnection();
 		UserVo userVo=new UserVo();
 		try {
@@ -130,10 +131,10 @@ public class UserDaoImpl implements IUserDao {
 			pre.setString(2, password);
 			ResultSet rs = pre.executeQuery();
 			while (rs.next()) {
-				 String username1 = rs.getString("username");
-				 String password1 = rs.getString("password");
-				 String nikename = rs.getString("nikename");
-				 Long id = rs.getLong("id");
+				 String username1 = rs.getString("u_username");
+				 String password1 = rs.getString("u_password");
+				 String nikename = rs.getString("u_nikename");
+				 Long id = rs.getLong("u_id");
 				 userVo.setId(id);
 				 userVo.setUserName(username1);
 				 userVo.setPassword(password1);

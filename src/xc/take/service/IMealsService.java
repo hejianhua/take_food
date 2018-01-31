@@ -15,4 +15,8 @@ public interface IMealsService {
 	//显示
 	List<Meals> showList();
 	
+	//根据id查询
+	
+	Meals findById(Long id);
+	
 }	

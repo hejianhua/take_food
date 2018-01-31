@@ -3,7 +3,7 @@ package xc.take.domain;
 public class Meals {
 	private Long id;
 	/*
-	 * 1.早餐，2.中餐，3晚餐
+	 * 是否启用
 	 * */
 	private Short status;
 	private String name;

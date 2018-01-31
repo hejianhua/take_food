@@ -15,5 +15,11 @@ public interface IUserService {
 	//列表显示
 	
 	List<UserVo> showList();
+	
+	//根据id查询
+	
+	UserVo findById(Long id);
+	
+
 
 }

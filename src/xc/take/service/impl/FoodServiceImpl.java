@@ -27,6 +27,12 @@ public class FoodServiceImpl implements IFoodService {
 		return foodDaoImpl.findAll();
 	}
 
+	@Override
+	public Food findById(Long id) {
+		
+		return foodDaoImpl.findById(id);
+	}
+
 	
 
 }

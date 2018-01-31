@@ -15,6 +15,55 @@
     <servlet-name>BillServlet</servlet-name>
     <servlet-class>xc.take.servlet.UI.BillServlet</servlet-class>
   </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>RegisterServlet</servlet-name>
+    <servlet-class>xc.take.servlet.controller.RegisterServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>GetBillVoListServlet</servlet-name>
+    <servlet-class>xc.take.servlet.controller.GetBillVoListServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>TransferServlet</servlet-name>
+    <servlet-class>xc.take.servlet.UI.TransferServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>AddFoodServlet</servlet-name>
+    <servlet-class>AddFoodServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>AddMealsServlet</servlet-name>
+    <servlet-class>xc.take.servlet.controller.AddMealsServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>AddBillServlet</servlet-name>
+    <servlet-class>xc.take.servlet.controller.AddBillServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>GoAddFoodServlet</servlet-name>
+    <servlet-class>xc.take.servlet.UI.GoAddFoodServlet</servlet-class>
+  </servlet>
+
+
+
+
+
+
+
 
 
   <servlet-mapping>
@@ -24,6 +73,34 @@
   <servlet-mapping>
     <servlet-name>BillServlet</servlet-name>
     <url-pattern>/BillServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>RegisterServlet</servlet-name>
+    <url-pattern>/RegisterServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>GetBillVoListServlet</servlet-name>
+    <url-pattern>/GetBillVoListServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>TransferServlet</servlet-name>
+    <url-pattern>/TransferServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>AddFoodServlet</servlet-name>
+    <url-pattern>/AddFoodServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>AddMealsServlet</servlet-name>
+    <url-pattern>/AddMealsServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>AddBillServlet</servlet-name>
+    <url-pattern>/AddBillServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>GoAddFoodServlet</servlet-name>
+    <url-pattern>/GoAddFoodServlet</url-pattern>
   </servlet-mapping>
 
 </web-app>

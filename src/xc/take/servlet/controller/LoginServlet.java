@@ -28,7 +28,7 @@ public class LoginServlet extends HttpServlet {
 		}
 		if(userVo!=null){
 			
-			request.getRequestDispatcher("/menu.jsp").forward(request, response);
+			request.getRequestDispatcher("/WEB-INF/menu.jsp").forward(request, response);
 		}
 	}
 

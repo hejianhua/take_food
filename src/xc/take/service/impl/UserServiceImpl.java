@@ -26,4 +26,10 @@ public class UserServiceImpl implements IUserService {
 		return userDaoImpl.findAll();
 	}
 
+	@Override
+	public UserVo findById(Long id) {
+		
+		return userDaoImpl.findById(id);
+	}
+
 }

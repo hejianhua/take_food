@@ -21,11 +21,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
-    <form action="">
+    <form action="/take_food/LoginServlet" method="post">
     	用户:<input type="text" name="username"/><br/>
     	密码:<input type="password" name="password"><br/>
     		
-    		<input type="button" value="登录"/>
+    		<input type="submit" value="登录"/><a href="/take_food/register.jsp">注册</a>
+    	
     </form>
     
     

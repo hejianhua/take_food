@@ -22,7 +22,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
   </head>
   
-  <body>
-    	<a href="/take_food/BillServlet"></a>
+  <body>只有一个功能：<br/>
+    	<a href="${request.ContextPath}/BillServlet">查看列表</a>
+    	<a href="${request.ContextPath}/addFood.jsp">添加食物</a>
+    	<a href="${request.ContextPath}/addBillVo.jsp">添加餐型</a>
+    	<a href="${request.ContextPath}/re">添加用户</a>
   </body>
 </html>

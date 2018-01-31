@@ -24,12 +24,16 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
-    <table>
+    <table align="center" border="1" width="600"  height="400"> 
     	<th>行号</th>
     	<th>姓名</th>
     	<th>昵称</th>
-    	<c:forEach items="${}">
-    	
+    	<c:forEach items="${list}" var="item" varStatus="index"   >
+    		<tr>
+    			<td align="center">${index.index}</td>
+    			<td align="center">${item.userName}</td>
+    			<td align="center">${item.nikename }</td>
+    		</tr>
     	</c:forEach>
     
     </table>

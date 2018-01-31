@@ -23,14 +23,13 @@ public class BillServlet extends HttpServlet {
 		List<UserVo> list = userServiceImpl.showList();
 		
 		request.setAttribute("list", list);
-		request.getRequestDispatcher("/showList.jsp").forward(request, response);
+		request.getRequestDispatcher("WEB-INF/showList.jsp").forward(request, response);
 
 	}
 
 
 	public void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
 			this.doGet(request, response);
 	}
 

@@ -14,4 +14,8 @@ public interface IFoodService {
 	
 	//查看食物列表
 	List<Food> showList();
+	
+	//根据id查询
+	
+	Food findById(Long id);
 }

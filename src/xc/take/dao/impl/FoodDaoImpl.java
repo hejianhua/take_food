@@ -16,7 +16,7 @@ public class FoodDaoImpl implements IFoodDao {
 
 	@Override
 	public void saveFood(Food food) {
-		String sql= "insert into food(name,price) values(?,?)";
+		String sql= "insert into food(f_name,f_price) values(?,?)";
 		Connection connection = JDBCUtil.getConnection();
 		try {
 			PreparedStatement pre = connection.prepareStatement(sql);
@@ -36,7 +36,7 @@ public class FoodDaoImpl implements IFoodDao {
 
 	@Override
 	public void modifyFood(Food food) {
-		String sql= "update food set name=? price=? where id=?";
+		String sql= "update food set f_name=? f_price=? where f_id=?";
 		Connection connection = JDBCUtil.getConnection();
 		try {
 			PreparedStatement pre = connection.prepareStatement(sql);
@@ -67,9 +67,9 @@ public class FoodDaoImpl implements IFoodDao {
 			
 			while(rs.next()){
 				Food food = new Food();
-				String name = rs.getString("name");
-				BigDecimal price=rs.getBigDecimal("price");
-				long id = rs.getLong("id");
+				String name = rs.getString("f_name");
+				BigDecimal price=rs.getBigDecimal("f_price");
+				long id = rs.getLong("f_id");
 				food.setId(id);
 				food.setName(name);
 				food.setPrice(price);
@@ -85,7 +85,7 @@ public class FoodDaoImpl implements IFoodDao {
 
 	@Override
 	public Food findById(Long id) {
-		String sql= "select * from  food where id=?";
+		String sql= "select * from  food where f_id=?";
 		Connection connection = JDBCUtil.getConnection();
 		Food food = new Food();
 		try {
@@ -93,8 +93,8 @@ public class FoodDaoImpl implements IFoodDao {
 			pre.setLong(1, id);
 			ResultSet rs = pre.executeQuery();
 			while(rs.next()){
-				String name = rs.getString("name");
-				BigDecimal price=rs.getBigDecimal("price");
+				String name = rs.getString("f_name");
+				BigDecimal price=rs.getBigDecimal("f_price");
 				food.setId(id);
 				food.setName(name);
 				food.setPrice(price);

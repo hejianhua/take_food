@@ -17,7 +17,7 @@ public class MealsDaoImpl implements IMealsDao {
 
 	@Override
 	public void saveMeals(Meals meals) {
-		String sql= "insert into meals(name,status) values(?,?)";
+		String sql= "insert into meals(m_name,m_status) values(?,?)";
 		Connection connection = JDBCUtil.getConnection();
 		try {
 			PreparedStatement pre = connection.prepareStatement(sql);
@@ -38,7 +38,7 @@ public class MealsDaoImpl implements IMealsDao {
 
 	@Override
 	public void modifyMeals(Meals meals) {
-		String sql= "update meals set name=? status=? where id=?";
+		String sql= "update meals set m_name=? m_status=? where m_id=?";
 		Connection connection = JDBCUtil.getConnection();
 		try {
 			PreparedStatement pre = connection.prepareStatement(sql);
@@ -69,9 +69,9 @@ public class MealsDaoImpl implements IMealsDao {
 			
 			while(rs.next()){
 				Meals meals = new Meals();
-				String name = rs.getString("name");
-				Short status=rs.getShort("status");
-				long id = rs.getLong("id");
+				String name = rs.getString("m_name");
+				Short status=rs.getShort("m_status");
+				long id = rs.getLong("m_id");
 				meals.setId(id);
 				meals.setName(name);
 				meals.setStatus(status);
@@ -87,7 +87,7 @@ public class MealsDaoImpl implements IMealsDao {
 
 	@Override
 	public Meals findById(Long id) {
-		String sql= "select * from  meals where id=?";
+		String sql= "select * from  meals where m_id=?";
 		Connection connection = JDBCUtil.getConnection();
 		Meals meals = new Meals();
 		try {
@@ -95,8 +95,8 @@ public class MealsDaoImpl implements IMealsDao {
 			pre.setLong(1, id);
 			ResultSet rs = pre.executeQuery();
 			while(rs.next()){
-				String name = rs.getString("name");
-				Short status=rs.getShort("status");
+				String name = rs.getString("m_name");
+				Short status=rs.getShort("m_status");
 				meals.setId(id);
 				meals.setName(name);
 				meals.setStatus(status);
