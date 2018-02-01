@@ -19,7 +19,7 @@ import xc.take.service.impl.FoodServiceImpl;
 import xc.take.service.impl.MealsServiceImpl;
 import xc.take.service.impl.UserServiceImpl;
 
-public class TransferServlet extends HttpServlet {
+public class TransferAddBillVoServlet extends HttpServlet {
 
 
 	public void doGet(HttpServletRequest request, HttpServletResponse response)

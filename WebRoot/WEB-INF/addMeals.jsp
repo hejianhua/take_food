@@ -23,7 +23,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
-    		<form action="${request.ContextPath }/addMealsServlet">
+    		<form action="${pageContext.request.contextPath }/AddMealsServlet" method="post">
 	    		餐型名称:<input  type="text"  name="name" />
 	    		
 	    		<input type="submit" value="确认" />

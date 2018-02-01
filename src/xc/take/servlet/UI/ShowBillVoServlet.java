@@ -1,4 +1,4 @@
-package xc.take.servlet.controller;
+package xc.take.servlet.UI;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -15,16 +15,16 @@ import xc.take.domain.BillVo;
 import xc.take.domain.Food;
 import xc.take.domain.Meals;
 import xc.take.domain.UserVo;
-import xc.take.service.BillVoServiceImpl;
 import xc.take.service.IBillVoService;
 import xc.take.service.IFoodService;
 import xc.take.service.IMealsService;
 import xc.take.service.IUserService;
+import xc.take.service.impl.BillVoServiceImpl;
 import xc.take.service.impl.FoodServiceImpl;
 import xc.take.service.impl.MealsServiceImpl;
 import xc.take.service.impl.UserServiceImpl;
 
-public class GetBillVoListServlet extends HttpServlet {
+public class ShowBillVoServlet extends HttpServlet {
 
 
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -62,6 +62,7 @@ public class GetBillVoListServlet extends HttpServlet {
 			request.setAttribute("mealsMap", mealsMap);
 			request.setAttribute("foodMap", foodMap);
 			
+		
 			request.getRequestDispatcher("/WEB-INF/showBillList.jsp").forward(request, response);
 		
 			

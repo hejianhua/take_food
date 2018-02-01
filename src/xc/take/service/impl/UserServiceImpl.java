@@ -4,6 +4,7 @@ import java.util.List;
 
 import xc.take.dao.IUserDao;
 import xc.take.dao.impl.UserDaoImpl;
+import xc.take.domain.PageModel;
 import xc.take.domain.UserVo;
 import xc.take.service.IUserService;
 
@@ -30,6 +31,18 @@ public class UserServiceImpl implements IUserService {
 	public UserVo findById(Long id) {
 		
 		return userDaoImpl.findById(id);
+	}
+
+	@Override
+	public List<UserVo> findByPage(PageModel page) {
+		
+		return userDaoImpl.findByPage(page);
+	}
+
+	@Override
+	public int findByCount() {
+	
+		return 	userDaoImpl.findByCount();
 	}
 
 }

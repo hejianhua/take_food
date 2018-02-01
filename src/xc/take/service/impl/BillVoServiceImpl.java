@@ -1,10 +1,11 @@
-package xc.take.service;
+package xc.take.service.impl;
 
 import java.util.List;
 
 import xc.take.dao.IBillVoDao;
 import xc.take.dao.impl.BillVoDaoImpl;
 import xc.take.domain.BillVo;
+import xc.take.service.IBillVoService;
 
 public class BillVoServiceImpl implements IBillVoService {
 	private IBillVoDao billVoDaoImpl=new BillVoDaoImpl();

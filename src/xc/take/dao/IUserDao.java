@@ -2,10 +2,12 @@ package xc.take.dao;
 
 import java.util.List;
 
+import xc.take.domain.PageModel;
 import xc.take.domain.UserVo;
 
 public interface IUserDao {
 	
+	//保存用户
 	void saveUser(UserVo userVo);
 	
 	void modifyUser(UserVo userVo);
@@ -15,4 +17,11 @@ public interface IUserDao {
 	List<UserVo> findAll();
 	
 	UserVo findByUserNameAndPassword(String username,String password);
+	
+	//分页查询
+	List<UserVo> findByPage(PageModel page);
+	//查询总记录数
+	
+	int findByCount();
+	
 }

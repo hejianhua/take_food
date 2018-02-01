@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import xc.take.dao.IUserDao;
+import xc.take.domain.PageModel;
 import xc.take.domain.UserVo;
 import xc.take.util.JDBCUtil;
 
@@ -143,11 +144,65 @@ public class UserDaoImpl implements IUserDao {
 			
 			JDBCUtil.closeConnection(connection, pre, rs);
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		}
 		
 		return userVo;
+	}
+
+	@Override
+	public List<UserVo> findByPage(PageModel page) {
+		String sql = "select * from  user limit ?,?";
+		Connection connection = JDBCUtil.getConnection();
+		List<UserVo> list= new ArrayList<UserVo>();
+		try {
+			PreparedStatement pre = connection.prepareStatement(sql);
+			pre.setLong(1, Long.valueOf(page.getPageIndex()));
+			pre.setLong(2, Long.valueOf(page.getPageSize()));
+			ResultSet rs = pre.executeQuery();
+			
+			while(rs.next()){
+				UserVo userVo=new UserVo();
+				 Long id = rs.getLong("u_id");
+				 String username = rs.getString("u_username");
+				 String password = rs.getString("u_password");
+				 String nikename = rs.getString("u_nikename");
+				 userVo.setId(id);
+				 userVo.setUserName(username);
+				 userVo.setPassword(password);
+				 userVo.setNikename(nikename);
+				 list.add(userVo);
+			}
+			
+			JDBCUtil.closeConnection(connection, pre, rs);
+			
+			
+		} catch (SQLException e) {
+			
+			e.printStackTrace();
+		}
+		return list;
+	}
+
+	@Override
+	public int findByCount() {
+		String sql="select count(*) from user";
+		Connection connection = JDBCUtil.getConnection();
+		int count=0;
+		try {
+			PreparedStatement pre = connection.prepareStatement(sql);
+			ResultSet rs = pre.executeQuery();
+			while(rs.next()){
+				count= rs.getInt(1);
+			}
+			JDBCUtil.closeConnection(connection, pre, rs);
+			
+		} catch (SQLException e) {
+			
+			e.printStackTrace();
+		}
+		return count;
 	}
 		
 }

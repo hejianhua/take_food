@@ -22,10 +22,10 @@ public class MealsDaoImpl implements IMealsDao {
 		try {
 			PreparedStatement pre = connection.prepareStatement(sql);
 			pre.setString(1, meals.getName());
-			pre.setShort(1, meals.getStatus());
+			pre.setShort(2, meals.getStatus());
 			int index = pre.executeUpdate();
 			if(index>0){
-				System.out.println("保存成功");
+				System.out.println("餐型保存成功");
 			}
 			JDBCUtil.closeConnection(connection, pre, null);
 			

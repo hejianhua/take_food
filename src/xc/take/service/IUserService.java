@@ -2,6 +2,7 @@ package xc.take.service;
 
 import java.util.List;
 
+import xc.take.domain.PageModel;
 import xc.take.domain.UserVo;
 
 public interface IUserService {
@@ -20,6 +21,10 @@ public interface IUserService {
 	
 	UserVo findById(Long id);
 	
-
+	//分页查询
+	List<UserVo> findByPage(PageModel page);
+	
+	//查询总记录数
+	int findByCount();
 
 }

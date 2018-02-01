@@ -30,7 +30,7 @@ public class RegisterServlet extends HttpServlet {
 			userVo.setNikename(nikename);
 			userServiceImpl.register(userVo);
 			
-			response.sendRedirect("/take_food/login.jsp");
+			response.sendRedirect(request.getContextPath()+"/login.jsp");
 		
 	}
 

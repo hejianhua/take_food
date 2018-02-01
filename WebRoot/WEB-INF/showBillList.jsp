@@ -24,7 +24,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>	
-    	<table>
+    	<table align="center" border="1" width="600" height="100">
     		<th>行号</th>
     		<th>客户名</th>
     		<th>餐型</th>
@@ -35,7 +35,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     		<c:forEach items="${list}" var="item" varStatus="vs" >
     			<tr>
     				<td>${vs.index}</td>
-    				<td>${userMap[item.id].username }</td>
+    				<td>${userMap[item.id].userName }</td>
     				<td>${mealsMap[item.id].name }</td>
     				<td>${foodMap[item.id].name }</td>
     				<td>${foodMap[item.id].price }</td>

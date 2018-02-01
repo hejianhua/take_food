@@ -1,4 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -9,7 +10,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <head>
     <base href="<%=basePath%>">
     
-    <title>My JSP 'index.jsp' starting page</title>
+    <title>显示所有的食物</title>
+    
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
 	<meta http-equiv="expires" content="0">    
@@ -18,18 +20,22 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<!--
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	-->
+
   </head>
   
-  <body>
-    <form action="${pageContext.request.contextPath}/LoginServlet" method="post">
-    	用户:<input type="text" name="username"/><br/>
-    	密码:<input type="password" name="password"><br/>
-    		
-    		<input type="submit" value="登录"/><a href="${pageContext.request.contextPath}/register.jsp">注册</a>
-    	
-    </form>
-    
-    
-    
+  <body>	
+  		
+    	<table align="center" border="1" width="600"  height="400"> 
+	    	<th>行号</th>
+	    	<th>姓名</th>
+	    	<th>昵称</th>
+	    	<c:forEach items="${list }" var="item" varStatus="index"   >
+	    		<tr>
+	    			<td align="center">${index.index+1}</td>
+	    			<td align="center">${item.name}</td>
+	    			<td align="center">${item.price }</td>
+	    		</tr>
+	    	</c:forEach>
+    	</table>
   </body>
 </html>

@@ -12,32 +12,20 @@
   <servlet>
     <description>This is the description of my J2EE component</description>
     <display-name>This is the display name of my J2EE component</display-name>
-    <servlet-name>BillServlet</servlet-name>
-    <servlet-class>xc.take.servlet.UI.BillServlet</servlet-class>
-  </servlet>
-  <servlet>
-    <description>This is the description of my J2EE component</description>
-    <display-name>This is the display name of my J2EE component</display-name>
     <servlet-name>RegisterServlet</servlet-name>
     <servlet-class>xc.take.servlet.controller.RegisterServlet</servlet-class>
   </servlet>
   <servlet>
     <description>This is the description of my J2EE component</description>
     <display-name>This is the display name of my J2EE component</display-name>
-    <servlet-name>GetBillVoListServlet</servlet-name>
-    <servlet-class>xc.take.servlet.controller.GetBillVoListServlet</servlet-class>
-  </servlet>
-  <servlet>
-    <description>This is the description of my J2EE component</description>
-    <display-name>This is the display name of my J2EE component</display-name>
-    <servlet-name>TransferServlet</servlet-name>
-    <servlet-class>xc.take.servlet.UI.TransferServlet</servlet-class>
+    <servlet-name>ShowBillVoServlet</servlet-name>
+    <servlet-class>xc.take.servlet.UI.ShowBillVoServlet</servlet-class>
   </servlet>
   <servlet>
     <description>This is the description of my J2EE component</description>
     <display-name>This is the display name of my J2EE component</display-name>
     <servlet-name>AddFoodServlet</servlet-name>
-    <servlet-class>AddFoodServlet</servlet-class>
+    <servlet-class>xc.take.servlet.controller.AddFoodServlet</servlet-class>
   </servlet>
   <servlet>
     <description>This is the description of my J2EE component</description>
@@ -57,6 +45,55 @@
     <servlet-name>GoAddFoodServlet</servlet-name>
     <servlet-class>xc.take.servlet.UI.GoAddFoodServlet</servlet-class>
   </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>ShowMenuServlet</servlet-name>
+    <servlet-class>xc.take.servlet.UI.ShowMenuServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>TransferAddFoodServlet</servlet-name>
+    <servlet-class>xc.take.servlet.UI.TransferAddFoodServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>TransferAddBillVoServlet</servlet-name>
+    <servlet-class>xc.take.servlet.UI.TransferAddBillVoServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>TransferAddMealsServlet</servlet-name>
+    <servlet-class>xc.take.servlet.UI.TransferAddMealsServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>ShowFoodServlet</servlet-name>
+    <servlet-class>xc.take.servlet.UI.ShowFoodServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>ShowMealsServlet</servlet-name>
+    <servlet-class>xc.take.servlet.UI.ShowMealsServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>ShowUserServlet</servlet-name>
+    <servlet-class>xc.take.servlet.UI.ShowUserServlet</servlet-class>
+  </servlet>
+
+
+
+
+
+
+
 
 
 
@@ -71,20 +108,12 @@
     <url-pattern>/LoginServlet</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
-    <servlet-name>BillServlet</servlet-name>
-    <url-pattern>/BillServlet</url-pattern>
-  </servlet-mapping>
-  <servlet-mapping>
     <servlet-name>RegisterServlet</servlet-name>
     <url-pattern>/RegisterServlet</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
-    <servlet-name>GetBillVoListServlet</servlet-name>
-    <url-pattern>/GetBillVoListServlet</url-pattern>
-  </servlet-mapping>
-  <servlet-mapping>
-    <servlet-name>TransferServlet</servlet-name>
-    <url-pattern>/TransferServlet</url-pattern>
+    <servlet-name>ShowBillVoServlet</servlet-name>
+    <url-pattern>/ShowBillVoServlet</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
     <servlet-name>AddFoodServlet</servlet-name>
@@ -101,6 +130,34 @@
   <servlet-mapping>
     <servlet-name>GoAddFoodServlet</servlet-name>
     <url-pattern>/GoAddFoodServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ShowMenuServlet</servlet-name>
+    <url-pattern>/ShowMenuServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>TransferAddFoodServlet</servlet-name>
+    <url-pattern>/TransferAddFoodServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>TransferAddBillVoServlet</servlet-name>
+    <url-pattern>/TransferAddBillVoServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>TransferAddMealsServlet</servlet-name>
+    <url-pattern>/TransferAddMealsServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ShowFoodServlet</servlet-name>
+    <url-pattern>/ShowFoodServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ShowMealsServlet</servlet-name>
+    <url-pattern>/ShowMealsServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ShowUserServlet</servlet-name>
+    <url-pattern>/ShowUserServlet</url-pattern>
   </servlet-mapping>
 
 </web-app>

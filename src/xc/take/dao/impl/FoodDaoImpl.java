@@ -21,10 +21,10 @@ public class FoodDaoImpl implements IFoodDao {
 		try {
 			PreparedStatement pre = connection.prepareStatement(sql);
 			pre.setString(1, food.getName());
-			pre.setBigDecimal(1, food.getPrice());
+			pre.setBigDecimal(2, food.getPrice());
 			int index = pre.executeUpdate();
 			if(index>0){
-				System.out.println("保存成功");
+				System.out.println("食物保存成功");
 			}
 			JDBCUtil.closeConnection(connection, pre, null);
 			
@@ -106,5 +106,7 @@ public class FoodDaoImpl implements IFoodDao {
 		}
 		return food;
 	}
+	
+	
 
 }

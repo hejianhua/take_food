@@ -24,26 +24,33 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
-  		<form action="${pageContext.request.ContextPath}/AddBillServlet">
+  		<form action="${pageContext.request.contextPath}/AddBillServlet">
 	   		请选择用户：<select name="u_id">
-			   			<c:forEach items="userVoList"  varStatus="vs" var="userVo">
-			   				<option  value="${userVo.id }" >${userVo.username}</option>
+	   					
+			   			<c:forEach items="${userVoList}"  varStatus="vs" var="userVo">
+			   				<option  value="${userVo.id }" >${userVo.userName}</option>
 			   			</c:forEach>
+			   			
 		   			</select><br/>
 	   		
 			请选择食物 ： <select name="f_id">
-			   			<c:forEach items="foodList"  varStatus="vs" var="food">
+					 
+			   			<c:forEach items="${foodList}"  varStatus="vs" var="food">
+			   				
 			   				<option value="${food.id }">${food.name}</option>
 			   			</c:forEach>
+			   		  
 			   		</select><br/>
 	   		
 	   		请选择餐型:<select name="m_id">
-			   			<c:forEach items="mealsList"  varStatus="vs" var="meals">
-			   				<option value="${meals.id }">${meals.name}</option>
+	   				 
+			   			<c:forEach items="${mealsList}"  varStatus="vs" var="meals">
+			   				 <option value="${meals.id }">${meals.name}</option> 
 			   			</c:forEach>
+			   		
 	   				</select><br/>
 	   				
-	   		请输入数量:<input type="text" name="number"  />
+	   		请输入数量:<input type="text" name="number"  /><br/>
 	   		
 	   		请输入此订单总价格:<input type="text" name="totalMoney"  />
 	   		

@@ -33,7 +33,7 @@ public class AddFoodServlet extends HttpServlet {
 		IFoodService foodServiceImpl = new FoodServiceImpl();
 		foodServiceImpl.createFood(food);
 		
-		response.sendRedirect("menu.jsp");
+		request.getRequestDispatcher("/WEB-INF/menu.jsp").forward(request, response);
 		
 	}
 

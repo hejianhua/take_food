@@ -10,7 +10,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <head>
     <base href="<%=basePath%>">
     
-    <title>我的账单列表</title>
+    <title>我的用户列表</title>
     
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
@@ -24,18 +24,31 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
+  	<h1 align="center">用户列表</h1>
     <table align="center" border="1" width="600"  height="400"> 
     	<th>行号</th>
     	<th>姓名</th>
     	<th>昵称</th>
     	<c:forEach items="${list}" var="item" varStatus="index"   >
     		<tr>
-    			<td align="center">${index.index}</td>
+    			<td align="center">${index.index+1}</td>
     			<td align="center">${item.userName}</td>
     			<td align="center">${item.nikename }</td>
     		</tr>
     	</c:forEach>
+    		<tr align="center">
+    			<td><a href="${pageContext.request.contextPath }/ShowUserServlet?pageSize=${pageModel.pageSize}&pageNumber=${pageModel.pageNumber==1? '1' : pageModel.pageNumber-1}">上一页</a></td>
+    			<td>页码:${pageModel.pageNumber }/${pageModel.pageCount }
+    					<select id="selectPage" name="pageSize">
+    						<option value="3">3</option>
+    						<option value="5">5</option>
+    						<option value="10">10</option>
+    					</select>
+    			</td>
+    			<td><a href="${pageContext.request.contextPath }/ShowUserServlet?pageSize=${pageModel.pageSize}&pageNumber=${pageModel.pageNumber==pageModel.pageCount? pageModel.pageCount : pageModel.pageNumber+1}">下一页</a></td>
+    		</tr>
     
     </table>
   </body>
+  
 </html>

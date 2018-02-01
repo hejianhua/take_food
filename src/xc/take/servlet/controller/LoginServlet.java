@@ -28,7 +28,8 @@ public class LoginServlet extends HttpServlet {
 		}
 		if(userVo!=null){
 			
-			request.getRequestDispatcher("/WEB-INF/menu.jsp").forward(request, response);
+			response.sendRedirect(request.getContextPath()+"/ShowMenuServlet");
+			//request.getRequestDispatcher("/WEB-INF/menu.jsp").forward(request, response);
 		}
 	}
 

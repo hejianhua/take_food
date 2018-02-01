@@ -10,8 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import xc.take.domain.BillVo;
-import xc.take.service.BillVoServiceImpl;
 import xc.take.service.IBillVoService;
+import xc.take.service.impl.BillVoServiceImpl;
 
 public class AddBillServlet extends HttpServlet {
 
@@ -43,7 +43,7 @@ public class AddBillServlet extends HttpServlet {
 		
 		billVoServiceImpl.saveBillVo(billVo);
 		
-		response.sendRedirect(request.getContextPath()+"/menu.jsp");
+		request.getRequestDispatcher("/WEB-INF/menu.jsp").forward(request, response);
 		
 	}
 

@@ -1,4 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -23,9 +24,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>只有一个功能：<br/>
-    	<a href="${request.ContextPath}/BillServlet">查看列表</a>
-    	<a href="${request.ContextPath}/addFood.jsp">添加食物</a>
-    	<a href="${request.ContextPath}/addBillVo.jsp">添加餐型</a>
-    	<a href="${request.ContextPath}/re">添加用户</a>
+  		<c:out value="${pageContext.request.contextPath}"></c:out>
+    	<a href="${pageContext.request.contextPath}/ShowBillVoServlet">查看账单列表</a>
+    	<a href="${pageContext.request.contextPath}/ShowFoodServlet">查看食物列表</a>
+    	<a href="${pageContext.request.contextPath}/ShowMealsServlet">查看餐型列表</a>
+    	<a href="${pageContext.request.contextPath}/ShowUserServlet?pageSize=5&pageNumber=1">查看用户列表</a>
+    	<hr/>
+    	<a href="${pageContext.request.contextPath}/TransferAddFoodServlet">添加食物</a>
+    	<a href="${pageContext.request.contextPath}/TransferAddMealsServlet">添加餐型</a>
+    	<a href="${pageContext.request.contextPath}/register.jsp">添加用户</a>
+    	<a href="${pageContext.request.contextPath}/TransferServlet">添加账单</a>
   </body>
 </html>
