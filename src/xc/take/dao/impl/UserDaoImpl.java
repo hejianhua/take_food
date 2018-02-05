@@ -125,13 +125,14 @@ public class UserDaoImpl implements IUserDao {
 	public UserVo findByUserNameAndPassword(String username, String password) {
 		String sql="select * from user where u_username=? and u_password=?";
 		Connection connection = JDBCUtil.getConnection();
-		UserVo userVo=new UserVo();
+		UserVo userVo=null;
 		try {
 			PreparedStatement pre = connection.prepareStatement(sql);
 			pre.setString(1, username);
 			pre.setString(2, password);
 			ResultSet rs = pre.executeQuery();
 			while (rs.next()) {
+				 userVo=new UserVo();
 				 String username1 = rs.getString("u_username");
 				 String password1 = rs.getString("u_password");
 				 String nikename = rs.getString("u_nikename");

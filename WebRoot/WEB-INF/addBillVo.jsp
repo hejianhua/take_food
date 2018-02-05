@@ -24,7 +24,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
-  		<form action="${pageContext.request.contextPath}/AddBillServlet">
+  		<form action="${pageContext.request.contextPath}/AddBillServlet" method="get">
+  			<input type="hidden" value="${token}" name="token" >
 	   		请选择用户：<select name="u_id">
 	   					
 			   			<c:forEach items="${userVoList}"  varStatus="vs" var="userVo">

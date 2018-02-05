@@ -29,6 +29,7 @@ public class AddMealsServlet extends HttpServlet {
 		meals.setStatus(Short.valueOf("1"));
 		
 		mealsServiceImpl.createMeals(meals);
+		response.sendRedirect(request.getContextPath()+"/ShowMealsServlet");
 		
 	}
 

@@ -3,6 +3,8 @@ package xc.take.dao;
 import java.util.List;
 
 import xc.take.domain.BillVo;
+import xc.take.domain.QueryParam;
+
 
 public interface IBillVoDao {
 		
@@ -16,4 +18,8 @@ public interface IBillVoDao {
 	//按u_id查询
 	
 	List<BillVo> findByUId(Long u_id);
+	
+	//多条件查询
+	
+	List<BillVo> findByParam(QueryParam qpm);
 }

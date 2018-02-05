@@ -2,6 +2,7 @@ package xc.take.servlet.UI;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -14,6 +15,8 @@ import javax.servlet.http.HttpServletResponse;
 import xc.take.domain.BillVo;
 import xc.take.domain.Food;
 import xc.take.domain.Meals;
+import xc.take.domain.Param;
+import xc.take.domain.QueryParam;
 import xc.take.domain.UserVo;
 import xc.take.service.IBillVoService;
 import xc.take.service.IFoodService;
@@ -37,8 +40,26 @@ public class ShowBillVoServlet extends HttpServlet {
 			IFoodService foodServiceImpl = new FoodServiceImpl();
 			IMealsService mealsServiceImpl = new MealsServiceImpl();
 			
+			//得到查询条件
+			String status = request.getParameter("status");
+			String total = request.getParameter("totalMoney"); 
+			
+			
+			//设置查询条件
+				
+				QueryParam qpm = new QueryParam();
+				if(status!=null&&status!=""){
+					qpm.addParam(new Param("status",status,"="));
+				}
+				request.setAttribute("status", status);
+				if(total!=null&&total!=""){
+					System.out.println("执行这里吗？");
+					qpm.addParam(new Param("totalMoney",total,"="));
+					request.setAttribute("totalMoney",total );
+				}
 			//容器放数据
-			List<BillVo> list = billVoServiceImpl.findBillVo();
+			//List<BillVo> list = billVoServiceImpl.findBillVo();
+			List<BillVo> list = billVoServiceImpl.findParam(qpm);
 			Map<Long,UserVo> userMap= new HashMap<Long,UserVo>();
 			Map<Long, Meals> mealsMap = new HashMap<Long,Meals>();
 			Map<Long, Food> foodMap = new HashMap<Long,Food>();

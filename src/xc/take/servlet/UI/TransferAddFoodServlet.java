@@ -8,13 +8,15 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import xc.take.util.TokenProccessor;
+
 public class TransferAddFoodServlet extends HttpServlet {
 
 	
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		response.setContentType("text/html");
+		response.setContentType("text/html");		
 		request.getRequestDispatcher("/WEB-INF/addFood.jsp").forward(request, response);
 	}
 

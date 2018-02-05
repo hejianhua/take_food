@@ -43,7 +43,8 @@ public class AddBillServlet extends HttpServlet {
 		
 		billVoServiceImpl.saveBillVo(billVo);
 		
-		request.getRequestDispatcher("/WEB-INF/menu.jsp").forward(request, response);
+		response.sendRedirect(request.getContextPath()+"/ShowBillVoServlet");
+		//request.getRequestDispatcher("/WEB-INF/menu.jsp").forward(request, response);
 		
 	}
 

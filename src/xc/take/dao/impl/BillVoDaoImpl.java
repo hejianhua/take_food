@@ -10,6 +10,7 @@ import java.util.List;
 
 import xc.take.dao.IBillVoDao;
 import xc.take.domain.BillVo;
+import xc.take.domain.QueryParam;
 import xc.take.util.JDBCUtil;
 
 public class BillVoDaoImpl implements IBillVoDao{
@@ -102,7 +103,7 @@ public class BillVoDaoImpl implements IBillVoDao{
 				list.add(billVo);
 			}
 			
-			
+			JDBCUtil.closeConnection(connection, pre, rs);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -144,7 +145,7 @@ public class BillVoDaoImpl implements IBillVoDao{
 				
 				list.add(billVo);
 			}
-			
+			JDBCUtil.closeConnection(connection, pre, rs);
 			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -154,6 +155,51 @@ public class BillVoDaoImpl implements IBillVoDao{
 		
 		return list;
 		
+	}
+
+	@Override
+	public List<BillVo> findByParam(QueryParam qpm) {
+		String baseSql="select * from Bill where 1=1 ";
+		qpm.setBaseSql(baseSql);
+		Connection connection = JDBCUtil.getConnection();
+		List<BillVo> list=new ArrayList<BillVo>();
+		try {
+			System.out.println(qpm.generateSql());
+			PreparedStatement pst = connection.prepareStatement(qpm.generateSql());
+			qpm.filePreparedStatement(pst);
+			ResultSet rs = pst.executeQuery();
+			
+			while(rs.next()){
+				BillVo billVo = new BillVo();
+				Long f_id = rs.getLong("f_id");
+				Long u_id1 = rs.getLong("u_id");
+				Long m_id = rs.getLong("m_id");
+				Short status = rs.getShort("status");
+				BigDecimal totalMoney = rs.getBigDecimal("totalMoney");
+				Long createTimestamp = rs.getLong("createTimestamp");
+				String number = rs.getString("number");
+				Long b_id = rs.getLong("b_id");
+				
+				billVo.setF_id(f_id);
+				billVo.setId(b_id);
+				billVo.setCreateTimestamp(createTimestamp);
+				billVo.setM_id(m_id);
+				billVo.setNumber(number);
+				billVo.setTotalMoney(totalMoney);
+				billVo.setU_id(u_id1);
+				billVo.setStatus(status);
+				
+				list.add(billVo);
+			}
+			
+			
+			JDBCUtil.closeConnection(connection, pst, rs);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return list;
 	}
 
 	

@@ -21,6 +21,13 @@ public class AddFoodServlet extends HttpServlet {
 		request.setCharacterEncoding("utf-8");
 		response.setContentType("text/html");
 		
+		boolean check = TokenServlet.tokenCheck(request);
+	
+		if(!check){
+			return;
+		}
+		
+		
 		String name = request.getParameter("name");
 		String price = request.getParameter("price");
 		BigDecimal price1=new BigDecimal(price);
@@ -34,6 +41,7 @@ public class AddFoodServlet extends HttpServlet {
 		foodServiceImpl.createFood(food);
 		
 		request.getRequestDispatcher("/WEB-INF/menu.jsp").forward(request, response);
+		//response.sendRedirect(request.getContextPath()+"/ShowFoodServlet");
 		
 	}
 

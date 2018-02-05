@@ -33,6 +33,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     	<a href="${pageContext.request.contextPath}/TransferAddFoodServlet">添加食物</a>
     	<a href="${pageContext.request.contextPath}/TransferAddMealsServlet">添加餐型</a>
     	<a href="${pageContext.request.contextPath}/register.jsp">添加用户</a>
-    	<a href="${pageContext.request.contextPath}/TransferServlet">添加账单</a>
+    	<a href="${pageContext.request.contextPath}/TransferAddBillVoServlet">添加账单</a>
   </body>
 </html>
