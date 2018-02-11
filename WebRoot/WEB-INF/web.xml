@@ -19,6 +19,7 @@
   
   
   <servlet>
+  
     <description>This is the description of my J2EE component</description>
     <display-name>This is the display name of my J2EE component</display-name>
     <servlet-name>LoginServlet</servlet-name>
@@ -67,8 +68,14 @@
     <servlet-class>xc.take.servlet.UI.ShowMenuServlet</servlet-class>
   </servlet>
   <servlet>
-    <description>This is the description of my J2EE component</description>
-    <display-name>This is the display name of my J2EE component</display-name>
+    <init-param>
+    	<param-name>model</param-name>
+    	<param-value>0001</param-value>
+    </init-param>
+    <init-param>
+    	<param-name>mode</param-name>
+    	<param-value>0001</param-value>
+    </init-param>
     <servlet-name>TransferAddFoodServlet</servlet-name>
     <servlet-class>xc.take.servlet.UI.TransferAddFoodServlet</servlet-class>
   </servlet>
@@ -102,6 +109,55 @@
     <servlet-name>ShowUserServlet</servlet-name>
     <servlet-class>xc.take.servlet.UI.ShowUserServlet</servlet-class>
   </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>ShowRoleServlet</servlet-name>
+    <servlet-class>xc.take.servlet.UI.ShowRoleServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>LookupRoleVoServlet</servlet-name>
+    <servlet-class>xc.take.servlet.UI.LookupRoleVoServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>TransferAddRoleVoServlet</servlet-name>
+    <servlet-class>xc.take.servlet.UI.TransferAddRoleVoServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>AddRoleVoServlet</servlet-name>
+    <servlet-class>xc.take.servlet.controller.AddRoleVoServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>AddUserOfRoleServlet</servlet-name>
+    <servlet-class>xc.take.servlet.controller.AddUserOfRoleServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>AllotAdminiServlet</servlet-name>
+    <servlet-class>xc.take.servlet.UI.AllotAdminiServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>HandleAdminServlet</servlet-name>
+    <servlet-class>xc.take.servlet.controller.HandleAdminServlet</servlet-class>
+  </servlet>
+
+
+
+
+
+
+
 
 
 
@@ -175,6 +231,34 @@
   <servlet-mapping>
     <servlet-name>ShowUserServlet</servlet-name>
     <url-pattern>/ShowUserServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ShowRoleServlet</servlet-name>
+    <url-pattern>/ShowRoleServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>LookupRoleVoServlet</servlet-name>
+    <url-pattern>/LookupRoleVoServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>TransferAddRoleVoServlet</servlet-name>
+    <url-pattern>/TransferAddRoleVoServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>AddRoleVoServlet</servlet-name>
+    <url-pattern>/AddRoleVoServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>AddUserOfRoleServlet</servlet-name>
+    <url-pattern>/AddUserOfRoleServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>AllotAdminiServlet</servlet-name>
+    <url-pattern>/AllotAdminiServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>HandleAdminServlet</servlet-name>
+    <url-pattern>/HandleAdminServlet</url-pattern>
   </servlet-mapping>
 
 

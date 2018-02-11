@@ -27,4 +27,5 @@ public interface IUserService {
 	//查询总记录数
 	int findByCount();
 
+	void saveUser_Role(Long UId, List<Long> roleIds);
 }

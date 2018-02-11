@@ -205,5 +205,29 @@ public class UserDaoImpl implements IUserDao {
 		}
 		return count;
 	}
+
+	@Override
+	public void saveUser_Role(Long UId, List<Long> roleIds) {
+		String sql = "insert into user_role (u_id ,r_id) values (?,?)";
+		Connection connection = null ;
+		PreparedStatement pst=null;
+		try {
+			connection=JDBCUtil.getConnection();
+			pst = connection.prepareStatement(sql);
+			for (Long role_id : roleIds) {
+				pst.setLong(1, UId);
+				pst.setLong(2, role_id);
+				pst.addBatch();
+			}
+			pst.executeBatch();
+			pst.clearBatch();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally{
+			JDBCUtil.closeConnection(connection, pst, null);
+		}
+		
+	}
 		
 }

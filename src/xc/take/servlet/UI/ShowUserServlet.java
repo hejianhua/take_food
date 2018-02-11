@@ -10,8 +10,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import xc.take.domain.PageModel;
+import xc.take.domain.RoleVo;
 import xc.take.domain.UserVo;
+import xc.take.service.IRoleVoService;
 import xc.take.service.IUserService;
+import xc.take.service.impl.RoleVoServiceImpl;
 import xc.take.service.impl.UserServiceImpl;
 
 public class ShowUserServlet extends HttpServlet {
@@ -28,12 +31,16 @@ public class ShowUserServlet extends HttpServlet {
 		pageModel.setPageSize(Integer.parseInt(pageSize));
 		
 		IUserService userServiceImpl = new UserServiceImpl();
+		//角色
+		IRoleVoService roleVoServiceImpl = new RoleVoServiceImpl();
 		
 		int total = userServiceImpl.findByCount();
 		pageModel.setTotalCount(total);
 		
 		List<UserVo> list = userServiceImpl.findByPage(pageModel);
+		List<RoleVo> roleList = roleVoServiceImpl.findByAll();
 		request.setAttribute("list", list);
+		request.setAttribute("roleList", roleList);
 		request.setAttribute("pageModel", pageModel);
 		request.getRequestDispatcher("/WEB-INF/showUserList.jsp").forward(request, response);
 		

@@ -24,4 +24,7 @@ public interface IUserDao {
 	
 	int findByCount();
 	
+	//为用户分配角色
+	void saveUser_Role(Long UId , List<Long> roleIds);
+	
 }

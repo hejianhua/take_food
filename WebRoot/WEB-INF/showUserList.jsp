@@ -22,6 +22,26 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	-->
 
   </head>
+  <script src="/take_food/js/jquery-1.12.4.js"></script>
+  <link rel="stylesheet" type="text/css" href="/take_food/css/jquery-ui.min.css"/>
+  <script src="/take_food/css/jquery-ui.min.js"></script>
+    <script type="text/javascript">
+  		function showCreat(uid){
+  			console.log(uid);
+  			$('#getUserId').val(uid);
+  			$('#createDialog').dialog(
+  					{title: '分配角色'},
+  					{height:580},
+  					{width:780},
+  					{modal:true},
+  					{show:'clip'}
+  				
+  			)
+  			
+  		}
+  
+  </script>
+  
   
   <body>
   	<h1 align="center">用户列表</h1>
@@ -29,11 +49,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     	<th>行号</th>
     	<th>姓名</th>
     	<th>昵称</th>
+    	<th>添加角色</th>
     	<c:forEach items="${list}" var="item" varStatus="index"   >
     		<tr>
     			<td align="center">${index.index+1}</td>
     			<td align="center">${item.userName}</td>
     			<td align="center">${item.nikename }</td>
+    			<td><input type="button" onclick="showCreat(${item.id})" value="添加角色"></td>
     		</tr>
     	</c:forEach>
     		<tr align="center">
@@ -49,6 +71,29 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     		</tr>
     
     </table>
+    
+    <div class="roleForm" id="createDialog" style="display: none;">
+    	<form id="addRole" action="${pageContext.request.contextPath }/AddUserOfRoleServlet" >
+    		<input id="getUserId" type="hidden"  name="u_id" value="" >
+    		
+    			<table>
+    				<tr>
+    					<th>行号</th>
+    					<th>角色名</th>
+    					<th>选择</th>
+    				</tr>
+    				<c:forEach items="${roleList }" var="role" varStatus="vs">
+    				<tr>	
+    					<td>${vs.index+1 }</td>
+    					<td>${role.name }</td>
+    					<td><input type="checkbox" name="roleIds" value="${role.id}" /></td>
+    				</tr>	
+    				</c:forEach>
+    			</table>
+    			<input type="submit" value="提交"/>
+    	</form>
+    </div>
+    
   </body>
-  
+
 </html>

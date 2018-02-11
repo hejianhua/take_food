@@ -45,4 +45,10 @@ public class UserServiceImpl implements IUserService {
 		return 	userDaoImpl.findByCount();
 	}
 
+	@Override
+	public void saveUser_Role(Long UId, List<Long> roleIds) {
+		
+		userDaoImpl.saveUser_Role(UId, roleIds);
+	}
+
 }
