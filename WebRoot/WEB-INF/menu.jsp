@@ -30,6 +30,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     	<a href="${pageContext.request.contextPath}/ShowMealsServlet">查看餐型列表</a>
     	<a href="${pageContext.request.contextPath}/ShowUserServlet?pageSize=5&pageNumber=1">查看用户列表</a>
     	<a href="${pageContext.request.contextPath}/ShowRoleServlet">查看角色列表</a>
+    	<a href="${pageContext.request.contextPath}/ShowExpressServlet">查看物流</a>
     	<hr/>
     	<a href="${pageContext.request.contextPath}/TransferAddFoodServlet">添加食物</a>
     	<a href="${pageContext.request.contextPath}/TransferAddMealsServlet">添加餐型</a>
