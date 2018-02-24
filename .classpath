@@ -26,5 +26,6 @@
 	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/gson-2.2.2.jar"/>
 	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/json-lib-2.4-jdk15.jar"/>
 	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/fastjson-1.1.33.jar"/>
+	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/commons_base-17.02.14-SNAPSHOT.jar"/>
 	<classpathentry kind="output" path="WebRoot/WEB-INF/classes"/>
 </classpath>

@@ -1,0 +1,1 @@
+Manifest-Version: 1.0Main-Class:ReaderExpressJsonClass-Path:sqlserver2005.jar 

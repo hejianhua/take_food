@@ -9,6 +9,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import lol.redScarf.base.logistics.aicha.LogisticsComsUtils;
+import lol.redScarf.base.logistics.kuaidi100.KuaiDi100ReaderExpressJson;
+import lol.redScarf.base.logistics.kuaidi100.util.KuaiDi100Express;
 import xc.take.util.Express;
 import xc.take.util.ReaderExpressJson;
 
@@ -21,7 +24,14 @@ public class ShowExpressServlet extends HttpServlet {
 		//ShowExpressServlet.class.getResourceAsStream("text2.json");
 		
 		
-		Map<String, List<Express>> map = ReaderExpressJson.getAll();
+		//Map<String, List<Express>> map = ReaderExpressJson.getAll();
+	
+/*		List<Map<String,Object>> coms = LogisticsComsUtils.getAllLogisticsComs();
+		System.out.println(coms);*/
+		
+		
+		Map<String, List<KuaiDi100Express>> map = KuaiDi100ReaderExpressJson.getAll();
+		System.out.println(map);
 		
 		request.setAttribute("map", map);
 		

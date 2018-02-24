@@ -1,6 +1,8 @@
 package xc.take.util;
 
 
+import java.io.File;
+import java.io.FileReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
@@ -31,9 +33,10 @@ public class ReaderExpressJson {
 	//联想数据库连接池加载驱动。静态代码块在装载的时候执行，且只执行一次
 	static{
 		 try {
-			 InputStream input = ReaderExpressJson.class.getClassLoader().getResourceAsStream("text2.json");
+			 InputStream input = ReaderExpressJson.class.getClassLoader().getResourceAsStream("/xc/take/util/text2.json");
 			 parser = new JsonParser();
-			  JsonElement parse = parser.parse(new InputStreamReader(input, "utf-8"));
+			 //new FileReader(new File("src/text2.json"))
+			  JsonElement parse = parser.parse(new FileReader(new File("src/xc/take/util/text2.json")));
 				Gson gson = new Gson();
 				String json = gson.toJson(parse);
 			 array = JSON.parseArray(json);
@@ -95,6 +98,7 @@ public class ReaderExpressJson {
 			JSONObject object = array.getJSONObject(i);
 			//首先第一步，查看键是否已经存在于map里面。
 			if(!expressMap.containsKey(object.getString("firstLetter"))){
+				
 				//如果不存在，就new对象，创建新的List集合。
 				 list= new ArrayList<Express>();
 				 express = new Express();
@@ -116,6 +120,11 @@ public class ReaderExpressJson {
 	}
 	
 
+	public static void main(String[] args) {
+		
+		Map<String, List<Express>> all = ReaderExpressJson.getAll();
+		System.out.println(all);
+	}
 	
 }
 
