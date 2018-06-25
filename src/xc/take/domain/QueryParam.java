@@ -36,6 +36,7 @@ public class QueryParam {
 		for (Param param : paramList) {
 			sb.append(String.format(templet, param.getField(),param.getOperator()));
 		}
+		System.out.println(sb.toString());
 		return sb.toString();
 	}
 	

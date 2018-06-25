@@ -21,6 +21,7 @@ public class MyToken extends SimpleTagSupport {
 			String token = TokenProccessor.getInstance().makeToken();
 			HttpSession session = pageContext.getSession();
 			//token放入session
+			System.out.println("自定义标签的执行");
 			session.setAttribute("token", token);
 			
 			String html="<input type='hidden'  value='"+token+"' name='token'>";

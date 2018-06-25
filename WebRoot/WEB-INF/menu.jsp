@@ -37,5 +37,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     	<a href="${pageContext.request.contextPath}/register.jsp">添加用户</a>
     	<a href="${pageContext.request.contextPath}/TransferAddBillVoServlet">添加账单</a>
     	<a href="${pageContext.request.contextPath}/TransferAddRoleVoServlet">添加角色</a>
+    	<a href="${pageContext.request.contextPath}/TransferAddResourceServlet">添加资源</a>
+    	
+    	<a href="${pageContext.request.contextPath}/BaseSevlet?handler=xc.take.servlet.base.TestBase">点我测试</a>
+    	
+    	
   </body>
+  		
+  
 </html>

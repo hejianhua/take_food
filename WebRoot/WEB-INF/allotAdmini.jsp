@@ -1,4 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -9,7 +10,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <head>
     <base href="<%=basePath%>">
     
-    <title>My JSP 'allotAdmini.jsp' starting page</title>
+    <title>资源分配</title>
     
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
@@ -28,19 +29,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	      <table align="center" border="1" width="580" height="260">
 	      	<tr>
 	      		<th>权限功能</th>
-	      		<th>增</th>
-	      		<th>删</th>
-	      		<th>改</th>
-	      		<th>查</th>
-	      		<th>其他</th>
+	      		<th>操作</th>
 	      	</tr>
-	      	<tr>
-	      		<td align="center" >食物分配权限</td>
-	      		<td align="center">增:<input type="checkbox" name="0001" value="0001"/></td>
-	      		<td align="center">删:<input type="checkbox" name="0001" value="0002"/></td>
-	      		<td align="center">改:<input type="checkbox" name="0001" value="0003"/></td>
-	      		<td align="center">查:<input type="checkbox" name="0001" value="0004"/></td>
-	      	</tr>
+	      	<c:forEach items="${resourceList}" var="resource" varStatus="vs">
+		      	<tr>
+		      		<td align="center" >${resource.name}</td>
+		      		<td align="center"><input type="checkbox" name="resourceIds" value="${resource.id}"/></td>
+		      	</tr>
+	      	</c:forEach>
 	      </table>
 	      <input type="submit" value="提交" />
       </form>

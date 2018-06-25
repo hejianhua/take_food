@@ -27,7 +27,8 @@ public class LoginServlet extends HttpServlet {
 			userVo = userServiceImpl.login(username, password);
 		}
 		if(userVo!=null){
-			
+			//登录成功，把当前登录的用户放入session
+			request.getSession().setAttribute("curUserVo", userVo);
 			response.sendRedirect(request.getContextPath()+"/ShowMenuServlet");
 			//request.getRequestDispatcher("/WEB-INF/menu.jsp").forward(request, response);
 		}else{

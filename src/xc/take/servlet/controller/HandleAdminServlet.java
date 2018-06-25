@@ -2,8 +2,10 @@ package xc.take.servlet.controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.ServletException;
@@ -24,26 +26,17 @@ public class HandleAdminServlet extends HttpServlet {
 			throws ServletException, IOException {
 		IRoleVoService roleVoServiceImpl = new RoleVoServiceImpl();	
 		
-		String roleId = request.getParameter("roleId");
-		RoleVo roleVo = roleVoServiceImpl.findById(Long.valueOf(roleId));
-		//获取到选中的参数。
-		Map<String,String> roleMap = new HashMap<String, String  >();
-		Enumeration<String> parameterNames = request.getParameterNames();
-
-		StringBuffer admin=new StringBuffer();
-		while(parameterNames.hasMoreElements()){
-			String element = parameterNames.nextElement();
-			if(!"roleId".equals(element)){
-				String value=new Gson().toJson(request.getParameterValues(element));
-				roleMap.put(element, value);
-			}
+		String[] ids = request.getParameterValues("resourceIds");
+		String role_id = request.getParameter("roleId");
+		
+		List<Long> resourceIds= new ArrayList<Long>();
+		for (String id : ids) {
+			resourceIds.add(Long.valueOf(id));
 		}
-		String pjson = new Gson().toJson(roleMap);  
 		
-		System.out.println(pjson);
-		roleVo.setPjson(pjson);
+		roleVoServiceImpl.saveRoleOfResource(Long.valueOf(role_id), resourceIds);
 		
-		roleVoServiceImpl.modifyRoleVo(roleVo);
+		response.sendRedirect(request.getContextPath()+"/ShowMenuServlet");
 	}
 
 

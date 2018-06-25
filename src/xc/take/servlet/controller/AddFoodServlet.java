@@ -21,11 +21,10 @@ public class AddFoodServlet extends HttpServlet {
 		request.setCharacterEncoding("utf-8");
 		response.setContentType("text/html");
 		
-		boolean check = TokenServlet.tokenCheck(request);
 	
-		if(!check){
+/*		if(!TokenServlet.tokenCheck(request)){
 			return;
-		}
+		}*/
 		
 		
 		String name = request.getParameter("name");

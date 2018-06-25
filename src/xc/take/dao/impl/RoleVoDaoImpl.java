@@ -15,13 +15,12 @@ public class RoleVoDaoImpl implements IRoleVoDao {
 
 	@Override
 	public void saveRole(RoleVo roleVo) {
-		String sql="insert into role (name, pjson) values (? ,?)";
+		String sql="insert into role (name) values (?)";
 		Connection connection = JDBCUtil.getConnection();
 		try {
 			PreparedStatement pst = connection.prepareStatement(sql);
 			
 			pst.setString(1, roleVo.getName());
-			pst.setString(2, roleVo.getPjson());
 			int index = pst.executeUpdate();
 			if(index>0){
 				System.out.println("添加角色成功");
@@ -37,12 +36,11 @@ public class RoleVoDaoImpl implements IRoleVoDao {
 
 	@Override
 	public void modifyRole(RoleVo roleVo) {
-		String sql ="update role set name=? ,pjson= ? where id=?";
+		String sql ="update role set name=?  where id=?";
 		Connection connection = JDBCUtil.getConnection();
 		try {
 			PreparedStatement pst = connection.prepareStatement(sql);
 			pst.setString(1, roleVo.getName());
-			pst.setString(2, roleVo.getPjson());
 			
 			int index = pst.executeUpdate();
 			if(index>0){
@@ -70,10 +68,8 @@ public class RoleVoDaoImpl implements IRoleVoDao {
 			while(rs.next()){
 				Long r_id = rs.getLong("id");
 				String name = rs.getString("name");
-				String psjon = rs.getString("pjson");
 				roleVo.setId(r_id);
 				roleVo.setName(name);
-				roleVo.setPjson(psjon);
 			}
 			JDBCUtil.closeConnection(connection, pst, rs);
 			
@@ -99,19 +95,17 @@ public class RoleVoDaoImpl implements IRoleVoDao {
 				RoleVo roleVo = new RoleVo();
 				Long r_id = rs.getLong("id");
 				String name = rs.getString("name");
-				String psjon = rs.getString("pjson");
 				roleVo.setId(r_id);
 				roleVo.setName(name);
-				roleVo.setPjson(psjon);
 				list.add(roleVo);
 			}
 			JDBCUtil.closeConnection(connection, pst, rs);
-			return list;
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 			throw new RuntimeException();
 		}
+		return list;
 		
 	}
 
@@ -125,13 +119,9 @@ public class RoleVoDaoImpl implements IRoleVoDao {
 			pst.setLong(1, UId);
 			ResultSet rs = pst.executeQuery();
 			while(rs.next()){
-				RoleVo roleVo = new RoleVo();
-				Long r_id = rs.getLong("id");
-				String name = rs.getString("name");
-				String psjon = rs.getString("pjson");
-				roleVo.setId(r_id);
-				roleVo.setName(name);
-				roleVo.setPjson(psjon);
+				Long r_id = rs.getLong("r_id");
+				RoleVo roleVo = findById(r_id);
+				
 				list.add(roleVo);
 			}
 			JDBCUtil.closeConnection(connection, pst, rs);
@@ -142,6 +132,31 @@ public class RoleVoDaoImpl implements IRoleVoDao {
 			e.printStackTrace();
 			throw new RuntimeException();
 		}
+		
+	}
+
+	@Override
+	public void addRoleByResource(Long role_id, List<Long> resourceIds) {
+		String sql = "insert into role_resource (role_id,resource_id) values (?,?)";
+		try {
+			Connection connection = JDBCUtil.getConnection();
+			PreparedStatement pst = connection.prepareStatement(sql);
+			
+			for (Long resourceId : resourceIds) {
+				pst.setLong(1, role_id);
+				pst.setLong(2, resourceId);
+				pst.addBatch();
+			}
+			pst.executeBatch();
+			pst.clearBatch();
+			
+			JDBCUtil.closeConnection(connection, pst, null);
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 		
 	}
 

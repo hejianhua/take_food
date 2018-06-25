@@ -8,13 +8,28 @@
   	<filter-name>EncodeFilter</filter-name>
   	<filter-class>xc.take.servlet.filter.EncodeFilter</filter-class>
   </filter>
+  <filter>
+  	<filter-name>AllotAdmin</filter-name>
+  	<filter-class>xc.take.servlet.filter.AllotAdmin</filter-class>
+  </filter>
+  <filter>
+  	<filter-name>TokeCheckForm</filter-name>
+  	<filter-class>xc.take.servlet.filter.TokeCheckForm</filter-class>
+  </filter>
+  
   
   <filter-mapping>
   	<filter-name>EncodeFilter</filter-name>
   	<url-pattern>/*</url-pattern>
   </filter-mapping>
-  
-  
+  <filter-mapping>
+  	<filter-name>AllotAdmin</filter-name>
+  	<url-pattern>/*</url-pattern>
+  </filter-mapping>
+  <filter-mapping>
+  	<filter-name>TokeCheckForm</filter-name>
+  	 <url-pattern>/*</url-pattern>	
+  </filter-mapping>
   
   
   
@@ -163,6 +178,27 @@
     <servlet-name>QueryExpressServlet</servlet-name>
     <servlet-class>xc.take.servlet.controller.QueryExpressServlet</servlet-class>
   </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>TransferAddResourceServlet</servlet-name>
+    <servlet-class>xc.take.servlet.UI.TransferAddResourceServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>AddResourceServlet</servlet-name>
+    <servlet-class>xc.take.servlet.controller.AddResourceServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>BaseSevlet</servlet-name>
+    <servlet-class>xc.take.servlet.base.BaseSevlet</servlet-class>
+  </servlet>
+
+
+
 
 
 
@@ -281,6 +317,18 @@
   <servlet-mapping>
     <servlet-name>QueryExpressServlet</servlet-name>
     <url-pattern>/QueryExpressServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>TransferAddResourceServlet</servlet-name>
+    <url-pattern>/TransferAddResourceServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>AddResourceServlet</servlet-name>
+    <url-pattern>/AddResourceServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>BaseSevlet</servlet-name>
+    <url-pattern>/BaseSevlet</url-pattern>
   </servlet-mapping>
 
 

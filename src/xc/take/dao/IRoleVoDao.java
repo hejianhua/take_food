@@ -25,5 +25,7 @@ public interface IRoleVoDao {
 	//按照Uid查询角色
 	List<RoleVo> findByUId(Long UId);
 	
+	//为角色添加资源。
+	void addRoleByResource(Long role_id, List<Long> resourceIds);
 	
 }

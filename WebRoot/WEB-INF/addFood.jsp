@@ -24,7 +24,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
-    	<form action="${pageContext.request.contextPath }/AddFoodServlet" method="get">
+    	<form action="AddFoodServlet" method="post">
     		<xc:token></xc:token>
     		食物名称:<input  type="text"  name="name" />
     		食物价格:<input  type="text"  name="price" />

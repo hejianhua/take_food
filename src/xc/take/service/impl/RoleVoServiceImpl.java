@@ -40,4 +40,10 @@ public class RoleVoServiceImpl implements IRoleVoService{
 		return roleVoDaoImpl.findAll();
 	}
 
+	@Override
+	public void saveRoleOfResource(Long role_id, List<Long> resourceIds) {
+		 roleVoDaoImpl.addRoleByResource(role_id,  resourceIds);
+		
+	}
+
 }

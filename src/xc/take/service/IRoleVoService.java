@@ -23,4 +23,7 @@ public interface IRoleVoService {
 	//查询所有角色
 	
 	List<RoleVo> findByAll();
+	
+	//为角色添加资源
+	void saveRoleOfResource(Long role_id,List<Long> resourceIds);
 }

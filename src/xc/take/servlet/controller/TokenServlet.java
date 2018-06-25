@@ -11,18 +11,21 @@ import javax.servlet.http.HttpServletResponse;
 public class TokenServlet {
 
 
-	
+	/**
+	 * 返回true 则允许提交。
+	 * 返回false，则已经提交过了，不可提交。
+	 * */
 	public static boolean tokenCheck(HttpServletRequest  request){
 		String seToken = (String) request.getSession().getAttribute("token");
 		String reqToken = (String) request.getParameter("token");
 		
-		System.out.println("进行了token的验证"+seToken);
+		System.out.println("进行了token的验证"+seToken+"-----"+reqToken);
+		if(reqToken==null){
+			System.out.println("说明request没有token，说明不是表单页面");
+			return true;
+		}
 		if(seToken==null){
 			System.out.println("说明session没有了token，是重复提交");
-			return false;
-		}
-		if(reqToken==null){
-			System.out.println("说明request没有了token，是重复提交");
 			return false;
 		}
 		if(reqToken.equals(seToken)){

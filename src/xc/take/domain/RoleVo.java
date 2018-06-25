@@ -5,9 +5,6 @@ public class RoleVo {
 	
 	private String name;
 	
-	//这个用来存储一系列的权限数值Json
-	
-	private String Pjson;
 
 	public Long getId() {
 		return id;
@@ -25,13 +22,7 @@ public class RoleVo {
 		this.name = name;
 	}
 
-	public String getPjson() {
-		return Pjson;
-	}
 
-	public void setPjson(String pjson) {
-		Pjson = pjson;
-	}
 
 	
 

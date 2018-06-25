@@ -27,6 +27,23 @@ public class EncodeFilter implements Filter {
 		HttpServletRequest  request= (HttpServletRequest) req;
 		HttpServletResponse  response =  (HttpServletResponse) res;
 		
+		String uri = request.getRequestURI();
+		String[] strings = uri.split("/");
+		System.out.println(strings[strings.length-1]);
+		
+		
+		
+/*		StringBuffer url = request.getRequestURL();
+		
+		System.out.println(uri);
+		System.out.println(url);
+		
+		/take_food/ShowBillVoServlet
+		http://localhost:8080/take_food/ShowBillVoServlet
+		
+		*
+		*/
+		
 		request.setCharacterEncoding("UTF-8");
 		response.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html;charset=UTF-8");
@@ -35,8 +52,10 @@ public class EncodeFilter implements Filter {
 		
 		
 		Chain.doFilter(encodeRequest, response);
-	
-		
+		if(true){
+			return;
+		}
+		System.out.println("后面的还执行吗？");
 	}
 
 	@Override
